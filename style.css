@@ -9,5 +9,19 @@ html {
 .container {
     height: 90vmin;
     width: 90vmin;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background-color: aqua;
 }
 
+.rows {
+    height: 22%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.squares {
+    width: 22%;
+    background-color: black;
+}
