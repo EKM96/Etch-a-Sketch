@@ -21,11 +21,28 @@ function addSquares() {
         
         for (let j = 1; j <= numberOfSquares; j++) {
             squares[j] = document.createElement('div');
-            squares[j].classList.add(`js-square${j}`, 'squares');
+            squares[j].classList.add('js-squares', 'squares');
             rowSelector.appendChild(squares[j]);
         }
     }
 }
 
+function changeBackgroundColor () {
+    let squares = document.querySelectorAll('.js-squares');
+    let randomColor;
+    const colors = ['blue', 'green', 'orange', 'fuchsia', 'purple', 'red', 'yellow', 'aqua'];
+
+    function addRandomColor () {
+        squares.forEach(element => {
+            randomColor = colors[Math.floor(Math.random()*colors.length)];
+            element.style.backgroundColor = randomColor;
+        });      
+    }
+
+    addRandomColor();
+    setInterval(addRandomColor, 2000);
+}
+
 addRows();
 addSquares();
+changeBackgroundColor();

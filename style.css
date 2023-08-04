@@ -9,7 +9,7 @@ html {
 .container {
     height: 90vmin;
     width: 90vmin;
-    background-color: aqua;
+    background-color: black;
     flex-direction: column;
 }
 
@@ -25,5 +25,4 @@ html {
 
 .squares {
     width: 22%;
-    background-color: black;
 }
