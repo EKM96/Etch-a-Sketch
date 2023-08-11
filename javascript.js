@@ -27,22 +27,27 @@ function addSquares() {
     }
 }
 
-function changeBackgroundColor () {
-    let squares = document.querySelectorAll('.js-squares');
+function randomColor() {
+    const PINK = '#ff01af';
+    const PURPLE = '#800080';
+    const colors = [PURPLE, PINK];
     let randomColor;
-    const colors = ['blue', 'green', 'orange', 'fuchsia', 'purple', 'red', 'yellow', 'aqua'];
+    
+    randomColor = colors[Math.floor(Math.random()*colors.length)];
+    return randomColor;
+}
 
-    function addRandomColor () {
-        squares.forEach(element => {
-            randomColor = colors[Math.floor(Math.random()*colors.length)];
-            element.style.backgroundColor = randomColor;
-        });      
-    }
+function addClickEvent() {
+    const squares = document.querySelectorAll('.js-squares');
 
-    addRandomColor();
-    setInterval(addRandomColor, 2000);
+    squares.forEach((square) => {
+        
+        square.addEventListener('click', () => {
+            square.style.backgroundColor = randomColor();
+        });
+    });
 }
 
 addRows();
 addSquares();
-changeBackgroundColor();
+addClickEvent();
