@@ -1,28 +1,39 @@
-function addRows() {
-    let numberOfRows = 4;
-    const rows = [];
+let squaresPerSide = 20;
+
+createGrid();
+addClickEvent();
+
+function createGrid () {
+    createRows();
+    createSquares();
+}
+
+function createRows() {
+    const rowsArray = [];
     const container = document.querySelector(".js-container");
 
-    for (let i = 1; i <= numberOfRows; i++) {
-        rows[i] = document.createElement('div');
-        rows[i].classList.add(`js-row${i}`, 'rows');
-        container.appendChild(rows[i]);
+    for (let i = 1; i <= squaresPerSide; i++) {
+        rowsArray[i] = document.createElement('div');
+        rowsArray[i].classList.add(`js-row${i}`, 'rows');
+        rowsArray[i].style.height = `${calcSquareSize()}%`;
+        container.appendChild(rowsArray[i]);
     }
 }
 
-function addSquares() {
-    let numberOfSquares = 4;
-    let numberOfRows = 4;
+function createSquares() {
+    let numberOfRows = squaresPerSide;
     let rowSelector;
-    const squares = [];
+    const squaresArray = [];
     
     for (let i = 1; i <= numberOfRows; i++) {
         rowSelector = document.querySelector(`.js-row${i}`);
         
-        for (let j = 1; j <= numberOfSquares; j++) {
-            squares[j] = document.createElement('div');
-            squares[j].classList.add('js-squares', 'squares');
-            rowSelector.appendChild(squares[j]);
+        for (let j = 1; j <= squaresPerSide; j++) {
+            squaresArray[j] = document.createElement('div');
+            squaresArray[j].classList.add('js-squares');
+            squaresArray[j].style.width = `${calcSquareSize()}%`;
+            squaresArray[j].style.backgroundColor = 'white';
+            rowSelector.appendChild(squaresArray[j]);
         }
     }
 }
@@ -42,12 +53,14 @@ function addClickEvent() {
 
     squares.forEach((square) => {
         
-        square.addEventListener('click', () => {
+        square.addEventListener('mouseover', () => {
             square.style.backgroundColor = randomColor();
         });
     });
 }
 
-addRows();
-addSquares();
-addClickEvent();
+function calcSquareSize () {
+    return (85 / squaresPerSide);
+    }
+
+

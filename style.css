@@ -7,23 +7,14 @@ html {
 }
 
 .container {
-    height: 90vmin;
-    width: 90vmin;
+    height: 95vmin;
+    width: 95vmin;
     background-color: black;
     flex-direction: column;
-}
-
-.rows {
-    height: 22%;
 }
 
 .container,
 .rows {
     display: flex;
     justify-content: space-evenly;
-}
-
-.squares {
-    width: 22%;
-    background-color: white;
 }
