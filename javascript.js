@@ -5,37 +5,35 @@ addClickEvent();
 
 function createGrid () {
     createRows();
-    createSquares();
+    addSquares();
 }
 
 function createRows() {
-    const rowsArray = [];
     const container = document.querySelector(".js-container");
+    let row;
 
     for (let i = 1; i <= squaresPerSide; i++) {
-        rowsArray[i] = document.createElement('div');
-        rowsArray[i].classList.add(`js-row${i}`, 'rows');
-        rowsArray[i].style.height = `${calcSquareSize()}%`;
-        container.appendChild(rowsArray[i]);
+        row = document.createElement('div');
+        row.classList.add(`js-row`, 'rows');
+        row.style.height = `${calculateSquareSize()}%`;
+        container.appendChild(row);
     }
 }
 
-function createSquares() {
-    let numberOfRows = squaresPerSide;
-    let rowSelector;
-    const squaresArray = [];
-    
-    for (let i = 1; i <= numberOfRows; i++) {
-        rowSelector = document.querySelector(`.js-row${i}`);
+function addSquares() {
+    const rows = document.querySelectorAll('.js-row');
+    let square;
+
+    rows.forEach((row) => {
         
-        for (let j = 1; j <= squaresPerSide; j++) {
-            squaresArray[j] = document.createElement('div');
-            squaresArray[j].classList.add('js-squares');
-            squaresArray[j].style.width = `${calcSquareSize()}%`;
-            squaresArray[j].style.backgroundColor = 'white';
-            rowSelector.appendChild(squaresArray[j]);
+        for (let i = 1; i <= squaresPerSide; i++) {
+            square = document.createElement('div');
+            square.classList.add('js-squares');
+            square.style.width = `${calculateSquareSize()}%`;
+            square.style.backgroundColor = 'white';
+            row.appendChild(square);
         }
-    }
+    });    
 }
 
 function randomColor() {
@@ -59,8 +57,8 @@ function addClickEvent() {
     });
 }
 
-function calcSquareSize () {
+function calculateSquareSize () {
     return (85 / squaresPerSide);
-    }
+}
 
 
