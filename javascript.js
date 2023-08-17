@@ -1,4 +1,4 @@
-let squaresPerSide = 20;
+let squaresPerSide = 9;
 
 createGrid();
 addClickEvent();
@@ -14,7 +14,7 @@ function createRows() {
 
     for (let i = 1; i <= squaresPerSide; i++) {
         row = document.createElement('div');
-        row.classList.add(`js-row`, 'rows');
+        row.classList.add(`js-row`, 'grid-rows');
         row.style.height = `${calculateSquareSize()}%`;
         container.appendChild(row);
     }

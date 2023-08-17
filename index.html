@@ -12,7 +12,35 @@
 </head>
 
 <body>
-    <div class="js-container  container"></div>
+    <div class="information-container">
+        <p class="grid-header">Grid: </p>
+        
+        <div class="slider-container">
+            <input 
+            type="range" 
+            min="2" 
+            max="50" 
+            value="2" 
+            step="1" 
+            list="values" 
+            class="slider"/>
+
+            <datalist class="range-values">
+                <option 
+                value="50" 
+                label="50">
+                </option>
+
+                <option 
+                value="2" 
+                label="2">
+                </option>     
+            </datalist>
+        </div>
+    </div>  
+    
+
+    <div class="js-container  grid-container"></div>
 </body>
 
 </html>
