@@ -41,10 +41,10 @@ function displaySliderInput () {
     const sliderHeader = document.querySelector('.js-slider-header');
     const input = document.querySelector('.js-input');
 
-    sliderHeader.textContent = `Grid: ${input.value} x ${input.value}`;
+    sliderHeader.textContent = `${input.value} x ${input.value}`;
 
     input.addEventListener('input', (event) => {
-        sliderHeader.textContent = `Grid: ${event.target.value} x ${event.target.value}`;
+        sliderHeader.textContent = `${event.target.value} x ${event.target.value}`;
     });
 }
 
