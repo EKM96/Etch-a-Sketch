@@ -3,6 +3,7 @@ let squaresPerSide = 2;
 displaySliderInput ();
 createGrid();
 addClickEvent();
+reset();
 
 const input = document.querySelector('.js-input');
 input.addEventListener('input', changeGridSize);
@@ -12,6 +13,7 @@ function changeGridSize (event) {
     deleteGrid();
     createGrid();
     addClickEvent();
+    reset();
 }
 
 function deleteGrid() {
@@ -102,4 +104,17 @@ function addClickEvent() {
 
 function calculateSquareSize () {
     return (85 / squaresPerSide);
+}
+
+function reset() {
+    const resetButton = document.querySelector('.js-reset');
+    const squares = document.querySelectorAll('.js-squares');
+
+    resetButton.addEventListener('click', () => {
+        
+        squares.forEach(square => {
+            square.style.removeProperty('background-color');
+            square.style.backgroundColor = 'white';
+        });
+    });
 }
