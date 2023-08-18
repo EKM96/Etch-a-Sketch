@@ -4,6 +4,37 @@ displaySliderInput ();
 createGrid();
 addClickEvent();
 
+const input = document.querySelector('.js-input');
+input.addEventListener('input', changeGridSize);
+
+function changeGridSize (event) {
+    squaresPerSide = parseInt(event.target.value);
+    deleteGrid();
+    createGrid();
+    addClickEvent();
+}
+
+function deleteGrid() {
+    deleteSquares();
+    deleteRows();
+}
+
+function deleteSquares() {
+    const squares = document.querySelectorAll('.js-squares');
+    
+    squares.forEach((square) => {
+        square.remove();
+    });  
+}
+
+function deleteRows() {
+    const rows = document.querySelectorAll('.js-row');
+
+    rows.forEach(row => {
+        row.remove();
+    });
+}
+
 function displaySliderInput () {
     const sliderHeader = document.querySelector('.js-slider-header');
     const input = document.querySelector('.js-input');
@@ -15,7 +46,7 @@ function displaySliderInput () {
     });
 }
 
-function createGrid () {
+function createGrid() {
     createRows();
     addSquares();
 }
@@ -72,5 +103,3 @@ function addClickEvent() {
 function calculateSquareSize () {
     return (85 / squaresPerSide);
 }
-
-
